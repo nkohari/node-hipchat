@@ -22,13 +22,26 @@ class HipChatClient
 				room_id: room
 		@_sendRequest options, callback
 
-	postMessage: (room, message, callback) ->
-		data = _.clone(message)
-		data.room_id = room
+	getHistory: (params, callback) ->
+		options = @_prepareOptions
+			method: 'get'
+			path:   '/v1/rooms/history'
+			query:
+				room_id:  params.room
+				date:     params.date ? 'recent'
+				timezone: params.timezone ? 'UTC'
+		@_sendRequest options, callback
+
+	postMessage: (params, callback) ->
 		options = @_prepareOptions
 			method: 'post'
 			path:   '/v1/rooms/message'
-			data:		data
+			data:
+				room_id: params.room
+				from:    params.from ? 'node-hipchat'
+				message: params.message
+				notify:  if params.notify then 1 else 0
+				color:   params.color ? 'yellow'
 		@_sendRequest options, callback
 	
 	_prepareOptions: (op) ->
