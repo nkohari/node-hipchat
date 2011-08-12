@@ -58,10 +58,11 @@ class HipChatClient
 			op.headers['Content-Type']   = 'application/x-www-form-urlencoded'
 			op.headers['Content-Length'] = op.data.length
 		
-		return options
+		return op
 	
 	_sendRequest: (options, callback) ->
 		req = https.request(options)
+		
 		req.on 'response', (res) ->
 			buffer = ''
 			res.on 'data', (chunk) ->
