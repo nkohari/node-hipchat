@@ -6,16 +6,16 @@
 	"licenses": [{
 		"type": "BSD",
 		"url":  "http://www.opensource.org/licenses/bsd-license.php"
-	}]
+	}],
 	"maintainers": [{
 		"name":  "Nate Kohari",
 		"email": "nkohari@gmail.com",
 		"web":   "http://nate.io/"
-	}]
+	}],
 	"repositories": [{
 		"type": "git",
 		"url":  "http://github.com/nkohari/node-hipchat.git"
-	}]
+	}],
 	"dependencies": {
 		"underscore": "1.1.7"
 	}
