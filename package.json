@@ -2,7 +2,7 @@
 	"name": "node-hipchat",
 	"version": "0.1.0",
 	"description": "HipChat API library for node.js",
-	"main": "build/hipchat.js",
+	"main": "lib/hipchat.js",
 	"licenses": [{
 		"type": "BSD",
 		"url":  "http://www.opensource.org/licenses/bsd-license.php"

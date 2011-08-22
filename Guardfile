@@ -1,3 +1,3 @@
-guard 'coffeescript', :output => 'build' do
+guard 'coffeescript', :output => 'lib' do
 	watch %r{^src/(.*)\.coffee$}
 end
