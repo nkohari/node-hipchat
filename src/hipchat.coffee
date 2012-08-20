@@ -42,6 +42,7 @@ class HipChatClient
 				message: params.message
 				notify:  if params.notify then 1 else 0
 				color:   params.color ? 'yellow'
+				message_format: params.message_format ? 'html'
 		@_sendRequest options, callback
 	
 	_prepareOptions: (op) ->
