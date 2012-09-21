@@ -1,20 +1,21 @@
 {
   "name": "node-hipchat",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "HipChat API library for node.js",
   "main": "lib/hipchat.js",
   "licenses": [{
     "type": "BSD",
     "url":  "http://www.opensource.org/licenses/bsd-license.php"
   }],
+  "authors": ["Nate Kohari <nkohari@gmail.com>", "Sergey Balbeko <sergey@balbeko.com>"], 
   "maintainers": [{
-    "name":  "Nate Kohari",
+    "name":  "Sergey Balbeko",
     "email": "sergey@balbeko.com",
-    "web":   "http://balbeko.com/"
+    "web":   "http://about.me/balbeko"
   }],
   "repositories": [{
     "type": "git",
-    "url":  "http://github.com/balbeko/node-hipchat.git"
+    "url":  "https://github.com/balbeko/node-hipchat.git"
   }],
   "dependencies": {
     "underscore": "1.1.7"
