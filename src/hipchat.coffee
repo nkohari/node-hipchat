@@ -9,15 +9,17 @@ class HipChatClient
   constructor: (@apikey) ->
   
   createRoom: (params, callback) ->
+    data = 
+      name: params.name
+      owner_user_id: params.owner_user_id
+      privacy: params.privacy ? 'public'
+      topic: params.topic
+      guest_access: if params.guest_access then 1 else 0
+
     options = @_prepareOptions
       method: 'post'
       path:   '/v1/rooms/create'
-      query:
-        name: params.name
-        owner_user_id: params.owner_user_id
-        privacy: params.privacy ? 'public'
-        topic: params.topic
-        guest_access: if params.guest_access then 1 else 0
+      query:  @_cleanupData data, params
     @_sendRequest options, callback
 
   listRooms: (callback) ->
@@ -124,8 +126,7 @@ class HipChatClient
       password: params.password
       timezone: params.timezone ? 'UTC' 
     
-    for k,v of data
-      delete data[k] unless params[k]?
+
 
     options = @_prepareOptions
       method: 'post'
@@ -174,5 +175,11 @@ class HipChatClient
 
     if options.data? then req.write('' + options.data)
     req.end()
+
+  _cleanupData: (data, params) ->
+    for k,v of data
+      delete data[k] unless params[k]?
+
+    return data
 
 exports = module.exports = HipChatClient
