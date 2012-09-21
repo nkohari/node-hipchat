@@ -46,26 +46,32 @@ class HipChatClient
 
 
   getHistory: (params, callback) ->
+    data =
+      room_id:  params.room_id
+      date:     params.date ? 'recent'
+      timezone: params.timezone ? 'UTC'
+    
     options = @_prepareOptions
       method: 'get'
       path:   '/v1/rooms/history'
-      query:
-        room_id:  params.room
-        date:     params.date ? 'recent'
-        timezone: params.timezone ? 'UTC'
+      query: @_cleanupData data, params
+
     @_sendRequest options, callback
 
   postMessage: (params, callback) ->
+    data =
+      room_id: params.room_id
+      from:    params.from ? 'node-hipchat'
+      message: params.message
+      notify:  if params.notify then 1 else 0
+      color:   params.color ? 'yellow'
+      message_format: params.message_format ? 'html'
+  
     options = @_prepareOptions
       method: 'post'
       path:   '/v1/rooms/message'
-      data:
-        room_id: params.room
-        from:    params.from ? 'node-hipchat'
-        message: params.message
-        notify:  if params.notify then 1 else 0
-        color:   params.color ? 'yellow'
-        message_format: params.message_format ? 'html'
+      data: @_cleanupData data, params
+
     @_sendRequest options, callback
   
 # users/* methods
