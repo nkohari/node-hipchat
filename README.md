@@ -10,17 +10,17 @@ You can also install via npm:
 Methods implemented:
 ====================
 
-rooms/create   createRoom (params, callback)  
-rooms/delete:  deleteRoom(room, callback)  
-rooms/history: getHistory(room, callback)  
-rooms/list:     listRooms(callback)  
-rooms/message: postMessage(params, callback)  
-rooms/show:     showRoom(room, callback)  
+rooms/create
+rooms/delete
+rooms/history
+rooms/list
+rooms/message
+rooms/show
 
-users/create   createUser(params, callback)  
-users/delete   deleteUser(user_id, callback)  
-users/list     listUsers(callback)  
-users/show     showUser(user_id, callback)  
-users/update   updateUser(params, callback)  
+users/create
+users/delete
+users/list
+users/show
+users/update
 
 

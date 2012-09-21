@@ -141,9 +141,9 @@ class HipChatClient
 # private methods
 
   _prepareOptions: (op) ->
-    console.log ">>> _prepareOptions"
-    console.log op
-    console.log "<<< _prepareOptions"
+    #console.log ">>> _prepareOptions"
+    #console.log op
+    #console.log "<<< _prepareOptions"
 
     op.host = @host
     
