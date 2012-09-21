@@ -18,6 +18,7 @@ class HipChatClient
         privacy: params.privacy ? 'public'
         topic: params.topic
         guest_access: if params.guest_access then 1 else 0
+    @_sendRequest options, callback
 
   listRooms: (callback) ->
     options = @_prepareOptions
