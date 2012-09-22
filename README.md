@@ -7,9 +7,8 @@ Summary
 A simple node.js library for communicating with the [HipChat](http://hipchat.com/) REST API.
 Supports full Hipchat API
 
-You can also install via npm:
+You CAN NOT  install it via npm yet:
 
-  npm install node-hipchat
 
 
 Methods implemented:
