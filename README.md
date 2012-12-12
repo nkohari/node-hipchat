@@ -1,7 +1,30 @@
+Credits
+=======
+Based on `nkohari/node-hipchat`
+
+Summary
+=======
 A simple node.js library for communicating with the [HipChat](http://hipchat.com/) REST API.
-Still under construction, and currently only supports sending messages to rooms.
+Supports full Hipchat API
 
-You can also install via npm:
+You CAN NOT  install it via npm yet:
 
-	npm install node-hipchat
+
+
+Methods implemented:
+====================
+
+`rooms/create`  
+`rooms/delete`  
+`rooms/history`  
+`rooms/list`  
+`rooms/message`  
+`rooms/show`  
+  
+`users/create`  
+`users/delete`  
+`users/list`  
+`users/show`  
+`users/update`  
+
 
