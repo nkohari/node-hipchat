@@ -76,10 +76,11 @@ class HipChatClient
       res.on 'data', (chunk) ->
         buffer += chunk
       res.on 'end', ->
+        headers = res.headers
         _client.rateLimits =
-          limit:        res['x-ratelimit-limit'],
-          remaining:    res['x-ratelimit-remaining'],
-          reset:        res['x-ratelimit-reset']
+          limit:        headers['x-ratelimit-limit'],
+          remaining:    headers['x-ratelimit-remaining'],
+          reset:        headers['x-ratelimit-reset']
 
         if callback?
           if res.statusCode is 200
