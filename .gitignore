@@ -1,3 +1,6 @@
+/.idea
+*.iml
+atlassian-ide-plugin.xml
 node_modules
 npm-debug.log
 *.DS_Store
