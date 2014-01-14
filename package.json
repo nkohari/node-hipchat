@@ -12,10 +12,10 @@
 		"email": "nkohari@gmail.com",
 		"web":   "http://nate.io/"
 	}],
-	"repositories": [{
+	"repository": {
 		"type": "git",
 		"url":  "http://github.com/nkohari/node-hipchat.git"
-	}],
+	},
 	"dependencies": {
 		"underscore": "1.1.7"
 	}
