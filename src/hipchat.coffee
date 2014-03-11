@@ -174,7 +174,7 @@ class HipChatClient
   _sendRequest: (options, callback) ->
     req = https.request(options)
     
-    req.on 'response', (res) ->
+    req.on 'response', (res) =>
       buffer = ''
       res.on 'data', (chunk) ->
         buffer += chunk
