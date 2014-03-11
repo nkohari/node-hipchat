@@ -5,9 +5,13 @@ _           = require 'underscore'
 class HipChatClient
   
   host:    'api.hipchat.com'
-  
+
   constructor: (@apikey) ->
-  
+    @rateLimits =
+      limit: 0
+      remaining: 0
+      reset: 0
+
   createRoom: (params, callback) ->
     data = 
       name: params.name
@@ -135,7 +139,11 @@ class HipChatClient
       path:   '/v1/users/update'
       data:   @_cleanupData data, params
 
-    @_sendRequest options, callback  
+    @_sendRequest options, callback
+
+
+  getRateLimits: () ->
+    @rateLimits
 
 
 # private methods
@@ -168,6 +176,12 @@ class HipChatClient
       res.on 'data', (chunk) ->
         buffer += chunk
       res.on 'end', ->
+        headers = res.headers
+        _client.rateLimits =
+          limit:        headers['x-ratelimit-limit'],
+          remaining:    headers['x-ratelimit-remaining'],
+          reset:        headers['x-ratelimit-reset']
+
         if callback?
           if res.statusCode is 200
             value = if options.json is false then buffer else JSON.parse(buffer)

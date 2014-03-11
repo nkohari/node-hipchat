@@ -1,26 +1,38 @@
 {
 	"name": "node-hipchat",
-	"version": "0.3.0",
+	"version": "0.4.1",
 	"description": "HipChat API library for node.js",
 	"main": "lib/hipchat.js",
 	"licenses": [{
 		"type": "BSD",
 		"url":  "http://www.opensource.org/licenses/bsd-license.php"
 	}],
-    "authors": [
-        "Nate Kohari <nkohari@gmail.com>", 
-        "Sergey Balbeko <sergey@balbeko.com>",
-        "Dan Rumney <dancrumb@gmail.com>"
-    ],
 	"maintainers": [{
 		"name":  "Nate Kohari",
 		"email": "nkohari@gmail.com",
 		"web":   "http://nate.io/"
 	}],
+    "contributors": [
+        {
+            "name":  "Dan Rumney",
+            "email": "dancrumb@gmail.com",
+            "web":   "http://dancrumb.com/"
+        },
+        {
+            "name":  "Sergey Balbeko",
+            "email": "sergey@balbeko.com"
+        }
+    ],
 	"repositories": [{
 		"type": "git",
 		"url":  "http://github.com/nkohari/node-hipchat.git"
 	}],
+    "scripts": {
+        "prepublish": "coffee --compile --output lib src/*.coffee"
+    },
+	"devDependencies": {
+        "coffee-script": "1.6.x"
+    },
 	"dependencies": {
 		"underscore": "1.1.7"
 	}
