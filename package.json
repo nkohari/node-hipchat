@@ -1,6 +1,6 @@
 {
 	"name": "node-hipchat",
-	"version": "0.4.2",
+	"version": "0.4.3",
 	"description": "HipChat API library for node.js",
 	"main": "lib/hipchat.js",
 	"licenses": [{
@@ -23,17 +23,17 @@
             "email": "sergey@balbeko.com"
         }
     ],
-	"repositories": [{
+	"repository": {
 		"type": "git",
 		"url":  "http://github.com/nkohari/node-hipchat.git"
-	}],
+	},
     "scripts": {
-        "prepublish": "coffee --compile --output lib src/*.coffee"
+        "prepublish": "./node_modules/.bin/coffee --compile --output lib src/*.coffee"
     },
 	"devDependencies": {
-        "coffee-script": "1.6.x"
+        "coffee-script": "1.7.x"
     },
 	"dependencies": {
-		"underscore": "1.1.7"
+		"underscore": "1.6.0"
 	}
 }

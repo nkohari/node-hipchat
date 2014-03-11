@@ -23,7 +23,7 @@ class HipChatClient
     options = @_prepareOptions
       method: 'post'
       path:   '/v1/rooms/create'
-      query:  @_cleanupData data, params
+      query:  data
     @_sendRequest options, callback
 
   listRooms: (callback) ->
@@ -58,7 +58,7 @@ class HipChatClient
     options = @_prepareOptions
       method: 'get'
       path:   '/v1/rooms/history'
-      query: @_cleanupData data, params
+      query: data
 
     @_sendRequest options, callback
 
@@ -74,7 +74,7 @@ class HipChatClient
     options = @_prepareOptions
       method: 'post'
       path:   '/v1/rooms/message'
-      data: @_cleanupData data, params
+      data: data
 
     @_sendRequest options, callback
   
@@ -118,7 +118,7 @@ class HipChatClient
     options = @_prepareOptions
       method: 'post'
       path:   '/v1/users/create'
-      data:   @_cleanupData data, params
+      data:   data
 
 
     @_sendRequest options, callback  
@@ -137,7 +137,7 @@ class HipChatClient
     options = @_prepareOptions
       method: 'post'
       path:   '/v1/users/update'
-      data:   @_cleanupData data, params
+      data:   data
 
     @_sendRequest options, callback
 
@@ -195,11 +195,5 @@ class HipChatClient
     if options.data? then req.write('' + options.data)
     req.end()
 
-  # Removes all unused keys from array before making request
-  _cleanupData: (data, params) ->
-    for k,v of data
-      delete data[k] unless params[k]?
-
-    return data
 
 exports = module.exports = HipChatClient
