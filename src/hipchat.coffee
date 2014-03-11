@@ -6,7 +6,7 @@ class HipChatClient
   
   host:    'api.hipchat.com'
 
-  constructor: (@apikey) ->
+  constructor: (@apikey, @agent) ->
     @rateLimits =
       limit: 0
       remaining: 0
@@ -165,6 +165,9 @@ class HipChatClient
       op.headers = {} unless op.headers?
       op.headers['Content-Type']   = 'application/x-www-form-urlencoded'
       op.headers['Content-Length'] = op.data.length
+
+    if(@agent)
+      op.agent = @agent
     
     return op
 
