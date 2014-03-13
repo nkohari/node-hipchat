@@ -1,6 +1,5 @@
 https       = require 'https'
 querystring = require 'querystring'
-_           = require 'underscore'
 
 class HipChatClient
   
