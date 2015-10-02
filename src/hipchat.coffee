@@ -101,7 +101,16 @@ class HipChatClient
       path:   '/v1/users/delete'
       query:
         user_id: user_id
-    @_sendRequest options, callback  
+    @_sendRequest options, callback
+
+
+  undeleteUser: (user_id, callback) ->
+    options = @_prepareOptions
+      method: 'post'
+      path:   '/v1/users/undelete'
+      query:
+        user_id: user_id
+    @_sendRequest options, callback
 
 
   createUser: (params, callback) ->
